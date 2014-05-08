@@ -1,0 +1,342 @@
+// Imports
+
+@import "lesshat.less";
+@import "normalize.less";
+@import "font-awesome/font-awesome.less";
+
+// Variables
+
+@satinweave: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMAgMAAAAFXpXmAAAABGdBTUEAALGPC/xhBQAAAAlQTFRF8vLy7+/v8fHxxV2ZvQAAADRJREFUCNdVysENADAIQlGWkRj3rodOWeDW0w8+0axlg5wlFW/FGyEdTUpeESKOqXBN8+cB4yUS37/ediwAAAAASUVORK5CYII=);
+
+// Mixins
+.TopTrim(){
+opacity: .5;
+background-color: #ddd;
+.box-shadow(~"0 2px 1px #fff, inset 0 -2px 4px #c8c8c8");
+}
+
+//menu mixins
+.MenuWrapBG(){
+.border-radius(12px);
+background-color: #f9f9f9;
+.box-shadow(~"0 1px 2px #fff, inset 0 1px 10px rgba(0,0,0,.15)");
+.background-image(~"linear-gradient(bottom, #fff 0%, #f3f3f3 100%)");
+}
+
+.MainMenuBG(){
+border: 1px solid #e4e4e4;
+.border-radius(11px);
+background-color: #fff;
+.box-shadow(~"0 3px 4px rgba(193,193,193,.75)");
+.background-image(~"linear-gradient(bottom, #e5e5e5 0%, #fff 100%)");
+}
+
+.MenuItemBG(){
+.background-image(~"linear-gradient(bottom, #eee 0%, #e4e4e4 25.49%, #fbfbfb 100%)");
+}
+
+.MenuItemText(){
+color: #5b5b5b;
+font-family: "Roboto";
+font-size: 18px;
+text-shadow: 0 1px 0 #fff;
+}
+
+.CurrentMenuItemBG(){
+border: 1px solid #e62d4e;
+background-color: #ef3d5d;
+.box-shadow(~"0 1px 0 #cc2241, inset 0 2px 5px rgba(250,171,185,.6)");
+.background-image(~"linear-gradient(bottom, #ef3d5d 0%, #dc2344 25.49%, #fc6b85 100%)");
+}
+
+.CurrentMenuItemText(){
+color: #fff;
+font-family: "Roboto";
+font-size: 18px;
+text-shadow: 0 -1px 0 #b50020;
+}
+
+//Main text lines mixins
+.ThinText(){
+color: #6b6b6b;
+font-family: "Roboto";
+font-size: 48px;
+}
+
+.ThickText(){
+color: #ef3d5d;
+font-family: "Roboto";
+font-size: 80px;
+font-weight: bold;
+}
+
+//Panel mixins
+.PanelBG(){
+border: 1px solid #d7d7d7;
+.border-radius(15px);
+background-color: #fff;
+.box-shadow(~"0 3px 4px rgba(193,193,193,.27)");
+}
+
+.PanelHeadBG(){
+.border-radius(10px);
+background-color: #ef3d5d;
+.box-shadow(~"0 3px 0 #cc2241, inset 0 0 5px rgba(222,42,74,.6), 0 5px 3px rgba(0,0,0,.27)");
+.background-image(~"linear-gradient(bottom, #ee2c4f 0%, #dc2344 10.5%, #fc6b85 100%)");
+}
+
+.PanelHeadText(){
+color: #fff;
+font-family: "Roboto";
+font-size: 24px;
+text-shadow: 0 -1px 0 #b50020;
+}
+
+.PanelText(){
+color: #6b6b6b;
+font-family: "Roboto";
+font-size: 36px;
+}
+
+.UsingTheseText(){
+color: #6b6b6b;
+font-family: "Roboto";
+font-size: 48px;
+}
+
+//Down arrow
+.DownArrow(){
+opacity: .3;
+color: #6b6b6b;
+font-family: "FontAwesome";
+font-size: 200px;
+}
+
+//Button mixins
+.StartButtonBG(){
+.border-radius(10px);
+background-color: #ef3d5d;
+.box-shadow(~"0 3px 0 #cc2241, inset 0 0 5px rgba(222,42,74,.6), 0 5px 3px rgba(0,0,0,.27)");
+.background-image(~"linear-gradient(bottom, #ee2c4f 0%, #dc2344 10.5%, #fc6b85 100%)");
+}
+
+.StartButtonText(){
+color: #fff;
+font-family: "Roboto";
+font-size: 36px;
+text-shadow: 0 -1px 0 #b50020;
+}
+
+.ArrowCircle(){
+.border-radius(23px);
+background-color: #ef3d5d;
+.background-image(~"linear-gradient(bottom, #ef4f6b 0%, #e32d4f 100%)");
+}
+
+.RightArrow(){
+color: #fff;
+font-family: "FontAwesome";
+font-size: 36px;
+}
+
+//Bottom trim
+.CenteredCircle(){
+border: 5px solid #ddd;
+.border-radius(20px);
+background-color: #f1f1f1;
+.background-image(~"radial-gradient(center, ellipse cover, #ddd 0%, #ddd 39.99%, #f1f1f1 44.75%, #f1f1f1 100%)");
+}
+
+
+// Styles
+
+* {
+.box-sizing(border-box);
+}
+body {
+background-image: @satinweave;
+overflow-x: hidden;
+}
+a, a:link, a:visited, a:hover, a:active {
+text-decoration: none;
+}
+
+//Top trim
+.toptrim {
+height: 8px;
+margin-bottom: 62px;
+.TopTrim();
+}
+
+//Menu
+.menuwrap {
+min-height: 61px;
+max-width: 1200px;
+width:100%;
+margin: 0 auto;
+padding: 5px;
+.MenuWrapBG;
+}
+
+ul.mainmenu {
+	padding: 0 15px;
+	margin: 0;
+	list-style-type: none;
+	min-height:50px;
+	.MainMenuBG();
+	li {
+		display: block;
+		float: left;
+		padding: 0;
+		border-top: 1px solid rgba(0,0,0,0);
+		border-bottom: 1px solid rgba(0,0,0,0.05);
+		border-right: 1px solid rgba(0,0,0,0.05);
+		border-left: 1px solid rgba(0,0,0,0);
+		&:first-of-type{
+			border-left: 1px solid rgba(0,0,0,0.05);
+		}
+		.MenuItemBG();
+		a, a:link, a:visited {
+			display:block;
+			height: 47px;
+			line-height: 47px;
+			padding: 0 30px;
+			//added font weight
+			font-weight: 400;
+			.MenuItemText();
+		}
+		&:hover {
+			.CurrentMenuItemBG();
+			a, a:link, a:visited {
+				.CurrentMenuItemText()
+			}
+		}
+	}
+	li.current {
+		.CurrentMenuItemBG();
+		a, a:link, a:visited {
+			.CurrentMenuItemText()
+		}
+	}
+}
+
+ul.mainmenu:before,
+ul.mainmenu:after {
+    content: " ";
+    display: table;
+}
+
+ul.mainmenu:after {
+    clear: both;
+}
+
+//Main text lines
+.maintext {
+	padding: 70px 0;
+	text-align: center;
+}
+.thintext {
+	margin: 0.425em 0;
+	//added font weight
+	font-weight: 100;
+	.ThinText();
+}
+
+.thicktext {
+	margin: 0.425em 0;
+	.ThickText();
+}
+
+//Panel
+.panel {
+	max-width: 1200px;
+	width:100%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+	text-align: center;
+	.PanelBG();
+	.PanelText();
+	font-weight: 100;
+	p {
+		margin: 1.2em 0;
+	}
+}
+
+.panelhead {
+	margin: 60px -15px;
+	padding: 20px;
+	.PanelHeadBG();
+	//added font weight
+	font-weight: 400;
+	.PanelHeadText();
+}
+
+.usingthese {
+	//added font weight
+	font-weight: 900;
+	.UsingTheseText();
+}
+
+.highlight {
+	color: #EF3D5C;
+}
+
+//Down arrow
+.downarrow {
+	margin: 80px auto;
+	text-align: center;
+	i {
+		.DownArrow();
+	}
+}
+
+//Buttons
+.buttonrow {
+	text-align: center;
+	margin: 20px auto;
+}
+.start {
+	border: 0;
+	padding: 0.75em 1em;
+	display: inline-block;
+	.StartButtonBG();
+	.StartButtonText();
+}
+
+.arrowcircle {
+	display: inline-block;
+	text-align: center;
+	padding-left: 7px;
+	margin-right: 10px;
+	.size(47px);
+	.ArrowCircle();
+}
+
+i.rightarrow {
+	font-style: normal;
+	display: block;
+	line-height: 50px;
+	.RightArrow();
+}
+
+//Bottom trim
+.bottomtrim {
+	margin: 120px 0;
+	height: 15px;
+	border-top: 5px solid #ddd;
+	border-bottom: 5px solid #ddd;
+	text-align: center;
+}
+
+.centercircle {
+	display: inline-block;
+	margin-top: -17px;
+	.size(40px);
+	.CenteredCircle();
+}
+
+
+
+
+
+
